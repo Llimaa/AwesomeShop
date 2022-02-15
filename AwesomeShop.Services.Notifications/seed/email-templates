@@ -1,0 +1,19 @@
+// ADICIONAR SEPARADAMENTE NA COLLECTION email-templates do database notification-service do MongoDB
+{
+    "_id" : UUID("c9d42394-c1b8-4fb5-97ec-2d44f04ee59d"),
+    "Subject" : "Your payment is confirmed!",
+    "Content" : "Hi, Your payment for the order ID {0} is confirmed. Your product will be prepared and sent soon.",
+    "Event" : "PaymentAccepted"
+}
+{
+    "_id" : UUID("5ba4507c-65a6-4e43-a624-8123bbc5ffdf"),
+    "Subject" : "Welcome, {0}!",
+    "Content" : "Welcome to AwesomeShop, {0}! You can search our products in awesome-shop-dot-com,",
+    "Event" : "CustomerCreated"
+}
+{
+    "_id" : UUID("7c12b682-66ce-4278-be3e-7289b1b34bde"),
+    "Subject" : "Your order is confirmed, {0}!",
+    "Content" : "Hi, {0}. Your order with ID {1} is confirmed. Your payment will be confirmed soon.",
+    "Event" : "OrderCreated"
+}]

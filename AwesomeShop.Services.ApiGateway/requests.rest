@@ -1,0 +1,103 @@
+@baseUrl = http://localhost:5000
+@customerId = 458ae271-ebc2-4f62-97e0-1cb6172bcd2b
+@productId = 52b124a6-eceb-4fba-b588-540a7cf22fce
+@orderId = 99ded71b-9e83-446d-bd20-f851d19e554c
+
+###
+
+POST {{baseUrl}}/customers/api/customers
+Content-Type: application/json
+
+{
+    "fullName": "Luis Felipe",
+    "birthDate": "1992-07-08T08:30:48.799Z",
+    "email": "famiw44269@nhmty.com"
+}
+
+###
+
+PUT {{baseUrl}}/customers/api/customers/{{customerId}}
+Content-Type: application/json
+
+{
+    "phoneNumber": "12345",
+    "address": {
+        "street": "rua",
+        "number": "123",
+        "city": "natal",
+        "state": "rn",
+        "zipCode": "12345-678"
+    }
+}
+
+###
+
+GET {{baseUrl}}/customers/api/customers/{{customerId}}
+
+###
+
+GET {{baseUrl}}/products/api/products/
+
+###
+
+POST {{baseUrl}}/products/api/products
+Content-Type: application/json
+
+{
+  "title": "Chinelo",
+  "description": "Chinelo de marca top",
+  "price": 150,
+  "quantity": 10,
+  "category": {
+    "description": "Vestimentas",
+    "subcategory": "Chinelos"
+  }
+}
+
+###
+
+GET {{baseUrl}}/products/api/products/{{productId}}
+
+###
+
+POST {{baseUrl}}/orders/api/orders
+Content-Type: application/json
+
+{
+  "customer": {
+    "id": "{{customerId}}",
+    "fullName": "Luis Dev",
+    "email": "famiw44269@nhmty.com"
+  },
+  "items": [
+    {
+      "productId": "{{productId}}",
+      "quantity": 10,
+      "price": 10
+    }
+  ],
+  "deliveryAddress": {
+        "street": "Rua 123",
+    "number": "123",
+    "city": "Sao Paulo",
+    "state": "SP",
+    "zipCode": "12345-678"
+  },
+  "paymentAddress": {
+    "street": "Rua 123",
+    "number": "123",
+    "city": "Sao Paulo",
+    "state": "SP",
+    "zipCode": "12345-678"
+  },
+  "paymentInfo": {
+    "cardNumber": "12312312",
+    "fullName": "LUIS DEV SILVA SAURO",
+    "expirationDate": "01/22",
+    "cvv": "123"
+  }
+}
+
+###
+
+GET {{baseUrl}}/orders/api/orders/{{orderId}}

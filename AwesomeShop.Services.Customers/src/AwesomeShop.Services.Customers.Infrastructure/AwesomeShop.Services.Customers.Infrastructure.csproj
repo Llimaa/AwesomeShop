@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="MessageBus" />
+      <Folder Include="Persistence\Repositories" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AwesomeShop.Services.Customers.Core\AwesomeShop.Services.Customers.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Consul" Version="1.6.10.2" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+      <PackageReference Include="MongoDB.Driver" Version="2.12.4" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
+    </ItemGroup>
+
+</Project>

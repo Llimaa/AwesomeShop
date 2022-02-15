@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  consul:
+    image: consul
+    container_name: consul
+    restart: unless-stopped
+    networks:
+      - mcourse
+    ports:
+      - 8500:8500
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: unless-stopped
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=root
+    #   - MONGO_INITDB_ROOT_PASSWORD=secret
+    networks:
+      - mcourse
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo:/data/db
+
+  rabbitmq:
+    build: ./rabbitmq
+    container_name: rabbitmq
+    restart: unless-stopped
+    networks:
+      - mcourse
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 15692:15692
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - mcourse
+    ports:
+      - 6379:6379
+    volumes: 
+      - redis:/data
+
+networks:
+  mcourse:
+    name: mcourse
+
+volumes:
+  mongo:
+    driver: local
+  redis:
+    driver: local
+  
